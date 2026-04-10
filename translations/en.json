@@ -1,0 +1,119 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set Up Segway PowerCube",
+        "data": {
+          "address": "Bluetooth Address",
+          "ble_name": "Device BLE Name"
+        }
+      },
+      "bluetooth_confirm": {
+        "title": "Segway PowerCube Found",
+        "description": "Found **{name}** ({address}). Confirm to connect."
+      },
+      "probe": {
+        "title": "Connecting…",
+        "description": "Connecting to {address} and checking pairing status. If the device is unpaired, press the power button when the device prompts you."
+      },
+      "enter_key": {
+        "title": "Enter Pairing Key",
+        "description": "This device is already paired with another app. Enter the 32-character hex pairing key (mKeyPwd) retrieved from the Segway app.",
+        "data": {
+          "mkey_pwd": "Pairing Key (hex)"
+        }
+      },
+      "pair": {
+        "title": "Pairing PowerCube",
+        "description": "Connecting to {address}. When prompted, **press the power button** on the device to confirm pairing."
+      },
+      "bluetooth_confirm": {
+        "title": "Segway PowerCube Found",
+        "description": "Found **{name}** ({address}). Confirm to connect."
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect. Ensure the device is powered on and in range.",
+      "invalid_key": "Key must be exactly 32 hex characters (16 bytes).",
+      "auth_failed": "Authentication failed. Check that the key is correct.",
+      "unknown": "An unexpected error occurred."
+    },
+    "abort": {
+      "already_configured": "Device is already configured."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "soc_pct": {"name": "Battery"},
+      "temp_c": {"name": "Temperature"},
+      "capacity_wh": {"name": "Capacity"},
+      "input_power_w": {"name": "Input Power"},
+      "output_power_w": {"name": "Output Power"},
+      "remain_time_min": {"name": "Remaining Time"},
+      "temp_mcu": {"name": "MCU Temperature"},
+      "temp_mcu_2": {"name": "MCU 2 Temperature"},
+      "temp_bms": {"name": "BMS Temperature"},
+      "temp_bms_2": {"name": "BMS 2 Temperature"},
+      "temp_ac_inv": {"name": "AC Inverter Temperature"},
+      "temp_ac_inv_2": {"name": "AC Inverter 2 Temperature"},
+      "temp_dc_conv": {"name": "DC Converter Temperature"},
+      "temp_dc_conv_2": {"name": "DC Converter 2 Temperature"},
+      "temp_pv_input": {"name": "PV Input Temperature"},
+      "temp_pv_input_2": {"name": "PV Input 2 Temperature"},
+      "port_usb_c1_power_w": {"name": "USB-C1 Power"},
+      "port_usb_c2_power_w": {"name": "USB-C2 Power"},
+      "port_usb_a1_power_w": {"name": "USB-A1 Power"},
+      "port_usb_a2_power_w": {"name": "USB-A2 Power"},
+      "port_usb_a3_power_w": {"name": "USB-A3 Power"},
+      "port_usb_a4_power_w": {"name": "USB-A4 Power"},
+      "port_dc_power_w": {"name": "DC Port Power"},
+      "port_ac_power_w": {"name": "AC Port Power"},
+      "port_usb_c1_voltage_v": {"name": "USB-C1 Voltage"},
+      "port_usb_c2_voltage_v": {"name": "USB-C2 Voltage"},
+      "port_usb_a1_voltage_v": {"name": "USB-A1 Voltage"},
+      "port_usb_a2_voltage_v": {"name": "USB-A2 Voltage"},
+      "port_usb_a3_voltage_v": {"name": "USB-A3 Voltage"},
+      "port_usb_a4_voltage_v": {"name": "USB-A4 Voltage"},
+      "port_dc_voltage_v": {"name": "DC Port Voltage"},
+      "port_ac_voltage_v": {"name": "AC Port Voltage"},
+      "port_usb_c1_current_a": {"name": "USB-C1 Current"},
+      "port_usb_c2_current_a": {"name": "USB-C2 Current"},
+      "port_usb_a1_current_a": {"name": "USB-A1 Current"},
+      "port_usb_a2_current_a": {"name": "USB-A2 Current"},
+      "port_usb_a3_current_a": {"name": "USB-A3 Current"},
+      "port_usb_a4_current_a": {"name": "USB-A4 Current"},
+      "port_dc_current_a": {"name": "DC Port Current"},
+      "port_ac_current_a": {"name": "AC Port Current"},
+      "bms_cycle_count": {"name": "BMS Cycle Count"},
+      "bms_pack_voltage": {"name": "BMS Pack Voltage"},
+      "bms_current": {"name": "BMS Current"}
+    },
+    "binary_sensor": {
+      "is_charging": {"name": "Charging"},
+      "has_errors": {"name": "Fault"}
+    },
+    "switch": {
+      "ac_output": {"name": "AC Output"},
+      "dc_output": {"name": "DC Output"},
+      "ups_mode": {"name": "UPS Mode"},
+      "super_power": {"name": "Super Power Drive"},
+      "key_tone": {"name": "Button Tone"}
+    },
+    "number": {
+      "ac_input_limit_w": {"name": "AC Input Limit"},
+      "ac_standby_min": {"name": "AC Standby Time"},
+      "dc_standby_min": {"name": "DC Standby Time"},
+      "device_standby_min": {"name": "Device Standby Time"},
+      "screen_time_min": {"name": "Screen Timeout"}
+    },
+    "select": {
+      "ac_frequency": {
+        "name": "AC Frequency",
+        "state": {
+          "50": "50 Hz",
+          "60": "60 Hz"
+        }
+      }
+    }
+  }
+}

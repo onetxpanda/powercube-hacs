@@ -1,0 +1,19 @@
+{
+  "domain": "powercube",
+  "name": "Segway PowerCube",
+  "version": "1.0.0",
+  "config_flow": true,
+  "dependencies": [],
+  "requirements": ["powercube@git+https://github.com/onetxpanda/powercube.git@main", "bleak>=0.21.0", "bleak-retry-connector>=3.0.0", "cryptography>=41.0"],
+  "bluetooth": [
+    {
+      "service_uuid": "6e400001-b5a3-f393-e0a9-e50e24dcca9e"
+    },
+    {
+      "local_name": "PowerCube*"
+    }
+  ],
+  "codeowners": [],
+  "iot_class": "local_polling",
+  "documentation": "https://github.com/onetxpanda/powercube-hacs"
+}
