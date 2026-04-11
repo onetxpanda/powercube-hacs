@@ -42,6 +42,19 @@ If the device has never been paired, you will be prompted to press the power but
 | Number | Standby Timers | AC/DC/device auto-off times |
 | Select | AC Frequency | 50 Hz / 60 Hz |
 
+## Energy Dashboard
+
+The integration exposes instantaneous power sensors (W). To use them with the Home Assistant Energy Dashboard, create two Riemann Sum integral helpers to accumulate kWh over time:
+
+1. Go to **Settings → Devices & Services → Helpers → Add Helper → Integration - Riemann sum**
+2. Create a helper for **energy in**:
+   - Source: `sensor.powercube_input_power`
+   - Unit: kWh, Method: Trapezoidal, Precision: 3
+3. Repeat for **energy out**:
+   - Source: `sensor.powercube_output_power`
+   - Unit: kWh, Method: Trapezoidal, Precision: 3
+4. In the Energy Dashboard, add the PowerCube under **Battery storage** using the two helper sensors as energy in/out.
+
 ## License
 
 MIT
