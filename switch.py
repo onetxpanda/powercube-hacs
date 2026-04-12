@@ -78,25 +78,26 @@ class PowerCubeSwitch(PowerCubeEntity, SwitchEntity):
         super().__init__(coordinator, description.key)
         self.entity_description = description
 
-    @property
-    def is_on(self) -> bool | None:
-        if self.coordinator.data is None:
-            return None
-        try:
-            return bool(self.entity_description.value_fn(self.coordinator.data))
-        except (KeyError, TypeError):
-            return None
+    def _handle_coordinator_update(self) -> None:
+        if self.coordinator.data is not None:
+            try:
+                self._attr_is_on = bool(self.entity_description.value_fn(self.coordinator.data))
+            except (KeyError, TypeError):
+                self._attr_is_on = None
+        super()._handle_coordinator_update()
 
     async def async_turn_on(self, **kwargs: Any) -> None:
         cube = self.coordinator._cube
         if cube is None:
             return
+        self._attr_is_on = True
+        self.async_write_ha_state()
         await self.entity_description.set_fn(cube, True)
-        await self.coordinator.async_request_refresh()
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         cube = self.coordinator._cube
         if cube is None:
             return
+        self._attr_is_on = False
+        self.async_write_ha_state()
         await self.entity_description.set_fn(cube, False)
-        await self.coordinator.async_request_refresh()
